@@ -11,18 +11,10 @@ def DBToJson(SQLCommand):
     ret = json.dumps(outputList,ensure_ascii=False)
     return ret
 
-def JsonToDB(filename):
-    file = open(filename,'r',encoding='utf-8')
-    data = file.readlines()
-    print(data)
 
 #this code inputs raw text (str) , outputs a list of document entry
-def StrToDoc(str,ifTesting):
+def StrToDoc(str):
     result=[]
-    
-    if(ifTesting):
-        filename = 'documents-none.txt'
-        str = Path(filename).read_text('utf-8')
     jsonStr = json.loads(str)
     try:
         recordLen = len(jsonStr['datas']['records'])
@@ -60,7 +52,6 @@ if __name__ == '__main__':
     
     filename = "Transport.json"
     Formatted_File = DBToJson(SQLCommand)
-    JsonToDB("Transport.json")
 
     file = open(filename,'w',encoding='utf-8')
     file.write(Formatted_File)

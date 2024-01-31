@@ -70,11 +70,10 @@ if __name__ == '__main__':
     payload_num = 0
     current_payload=payload_num
     payloads = request_payload_generate(5000,payload_num)
-    numberFilePos = "curNumber.txt"
     last_lines=0
     new_lines=0
     first_lines=0
-    updatedCookie ="acw_tc=3ccdc14c17026339949447743e4a2b2d2a6c52a55db0ff7118e92784905a34; projectlib-securitycas-cookie=7f865954-aff8-47c1-8202-3c3cfdb168e5; Hm_lvt_b5f82f8b48cb1b9d3aa2d563ead70066=1702524243,1702538366,1702570601,1702633994; Hm_lvt_789fd650fa0be6a2a064d019d890b87f=1702524243,1702538366,1702570601,1702633994; Hm_lvt_ebdae93fc0f3ab51e390feccb7dd3e14=1702524243,1702538366,1702570601,1702633994; Hm_lvt_723370d3ae383d003bd1044420f79bab=1702524243,1702538366,1702570601,1702633994; Hm_lpvt_789fd650fa0be6a2a064d019d890b87f=1702634034; Hm_lpvt_ebdae93fc0f3ab51e390feccb7dd3e14=1702634034; Hm_lpvt_b5f82f8b48cb1b9d3aa2d563ead70066=1702634034; Hm_lpvt_723370d3ae383d003bd1044420f79bab=1702634034"
+    updatedCookie =""
     for payload in payloads:
         print(f"\tCURRENT payload_num:{current_payload}")
         pageIndex=0
@@ -105,9 +104,7 @@ if __name__ == '__main__':
             time.sleep(2+random.randint(0,2))
             if(pageIndex>2 and new_lines - last_lines <5 ):
                 pageIndex += 10
-
             searchPages = (current_payload)*50 + pageIndex
-            print(f"TOTALCurrentProgress:{searchPages} , effecitive Rate :{last_lines/200000}")
             last_lines=new_lines
         current_payload += 1
         numberFilePos = "ScrapRecord.txt"
