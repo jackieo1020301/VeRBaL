@@ -80,11 +80,11 @@ if __name__ == '__main__':
         pageIndex=0
         while pageIndex<=50:
             pageIndex +=1
-            print(f"CURRENTpageIndex:{pageIndex},out of 50")
+            print(f"CURRENTpageIndex:{pageIndex}")
             try:
                 rawText = requestRawDocs(updatedCookie,payload)
             except:
-                print("Requset Failed")
+                #Requset Failed
                 pageIndex=1
             time.sleep(1)
             payload['page'] = pageIndex
@@ -95,7 +95,7 @@ if __name__ == '__main__':
                     first_lines=DB_lines
                 new_lines=DB_lines
             except(TypeError):
-                print("CurrentPayloadEnded,StartingNewOne...")
+                #CurrentPayloadEnded,StartNewOne
                 break
             except:
                 print(traceback.print_exc())
@@ -113,7 +113,7 @@ if __name__ == '__main__':
             try:
                 file.write(f"RESTARTING FROM {payload_num} payload:{current_payload}, DBLines:{DB_lines}\n")
             except:
-                print("FileWriteError")
+                #"FileWriteError"
                 continue
     print(f"fistlines{first_lines} ; finishedlines{last_lines} ; increment{last_lines-first_lines}")
 
