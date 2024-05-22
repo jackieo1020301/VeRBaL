@@ -16,6 +16,6 @@ SepTxt.py seperates the ENTIRE dataset by year to {year}.txt files
 Simply run $ python ./SepTxt.py to seperate dataset
 
 TextToPromptedSample.py formulates dataset to different contrastive tasks, to operate the program:
-1.customize file name at line 195
-2.tune the ratio of tasks: classify : summary : generate = taskratioC : taskratioS : 1-taskratioC-taskratioS
-3.run python $ python ./TextToPromptedSample.py to generate json datasets.
+1. customize file name at line 195
+2. tune the ratio of tasks: classify : summary : generate = taskratioC : taskratioS : 1-taskratioC-taskratioS
+3. run python $ python ./TextToPromptedSample.py to generate json datasets.
